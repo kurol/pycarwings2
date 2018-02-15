@@ -558,7 +558,8 @@ class CarwingsLatestBatteryStatusResponse(CarwingsResponse):
 
 
         recs = status["BatteryStatusRecords"]
-
+        if not "BatteryStatus" in recs:
+            return        		
         bs = recs["BatteryStatus"]
         self.battery_capacity = bs["BatteryCapacity"]
         self.battery_remaining_amount = bs["BatteryRemainingAmount"]
